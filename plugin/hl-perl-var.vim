@@ -45,10 +45,10 @@ endfunction
 if ( ! exists( "g:hlvarnoauto" ) || g:hlvarnoauto == 1 )
     augroup HighlightVar
         autocmd!
-        au FileType perl :au CursorMoved * call <SID>hlvar()
-        au FileType perl :au CursorMovedI * call <SID>hlvar()
-        "au FileType perl :au CursorHold * call <SID>hlvar()
-        "au FileType perl :au CursorHoldI * call <SID>hlvar()
+        "au FileType perl :au CursorMoved * call <SID>hlvar()
+        "au FileType perl :au CursorMovedI * call <SID>hlvar()
+        au FileType perl :au CursorHold * call <SID>hlvar()
+        au FileType perl :au CursorHoldI * call <SID>hlvar()
     augroup END
 
     " only add the highlight group if it doesn't already exist.
