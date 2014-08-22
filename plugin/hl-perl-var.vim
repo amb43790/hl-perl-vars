@@ -23,7 +23,7 @@ function! s:hlvar()
         let l:match = '@' . l:word . '\>\|[$@]' . l:word . '[\@='
 
     " $hash{key} @hash{key1,key2}
-    elseif (match( l:word, '^[$@][a-zA-Z0-9_\x7f-\xff]\+{') >= 0)
+    elseif (match( l:word, '^[$@%][a-zA-Z0-9_\x7f-\xff]\+{') >= 0)
         let l:word = matchstr( l:word, '[a-zA-Z0-9_\x7f-\xff]\+' )
         let l:match = '%' . l:word . '\>\|[$@]' . l:word . '{\@='
 
