@@ -15,6 +15,8 @@ function! s:hlvar()
         return
     endif
 
+    let l:match = ''
+
     " $array[1] @array[1,2]
     if (match( l:word, '^[$@][a-zA-Z0-9_\x7f-\xff]\+[') >= 0)
         let l:word = matchstr( l:word, '[a-zA-Z0-9_\x7f-\xff]\+' )
@@ -39,7 +41,9 @@ function! s:hlvar()
     endif
 
     " do the highlighting
-    let w:current_match = matchadd( 'PerlVarHiLight', l:match )
+    if (strlen(l:match))
+        let w:current_match = matchadd( 'PerlVarHiLight', l:match )
+    endif
 endfunction
 
 if ( ! exists( "g:hlvarnoauto" ) || g:hlvarnoauto == 1 )
