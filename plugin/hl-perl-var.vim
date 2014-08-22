@@ -28,11 +28,11 @@ function! s:hlvar()
         let l:match = '%' . l:word . '\>\|[$@]' . l:word . '{\@='
 
     " @array
-    elseif (match( l:word, '^@') >= 0)
+    elseif (match( l:word, '^@[a-zA-Z0-9_\x7f-\xff]') >= 0)
         let l:match = l:word . '\>\|' . substitute( l:word, '^@', '[@$]', '') . '[\@='
 
     " %hash
-    elseif (match( l:word, '^%') >= 0)
+    elseif (match( l:word, '^%[a-zA-Z0-9_\x7f-\xff]') >= 0)
         let l:match = l:word . '\>\|' . substitute( l:word, '^%', '[@$]', '') . '{\@='
     
     " $scalar
