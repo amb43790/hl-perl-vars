@@ -36,7 +36,7 @@ function! s:hlvar()
         let l:match = l:word . '\>\|' . substitute( l:word, '^%', '[@$]', '') . '{\@='
     
     " $scalar
-    else
+    elseif (match( l:word, '^\$') >= 0)
         let l:match = l:word . '\>[^}\]]\@='
     endif
 
